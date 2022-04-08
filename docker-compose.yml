@@ -14,6 +14,7 @@ services:
     command: yarn start:debug  
     environment:      
       HTTP_PORT: 5000 
+      MONGO_URI: 'mongodb://root:root@mongodb/test3?authSource=admin'
     depends_on:
       - mongodb
 
@@ -27,7 +28,7 @@ services:
       - MONGO_INITDB_ROOT_USERNAME=root
       - MONGO_INITDB_ROOT_PASSWORD=root
     ports:
-      - 27017:27017
+      - 27018:27017
 
   mongo-express:
       links:
@@ -47,7 +48,7 @@ services:
      - mongodb
     image: renzholy/mongood:latest    
     # environment:
-     # - MONGO_URI=mongodb://root:root@mongodb/test?authSource=admin
+     # - MONGO_URI=mongodb://root:root@mongodb/test3?authSource=admin
       
     ports:
       - "3001:3000"
